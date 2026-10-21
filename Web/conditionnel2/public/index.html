@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Conditional - Activité 1</title>
+    <!-- Chargement des bibliothèques React -->
+    <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+</head>
+<body>
+
+    <div id="root"></div>
+
+    <script type="text/babel">
+        function MessageHeure() {
+            // Récupération de l'heure actuelle (de 0 à 23)
+            const heure = new Date().getHours();
+            let message = "";
+
+            // 1ère Méthode : Utilisation de l'instruction if / else if / else
+            if (heure >= 6 && heure < 12) {
+                message = "Bonjour";
+                couleurTexte = "#04567F";
+
+            } else if (heure >= 12 && heure < 18) {
+                message = "Bonne après midi";
+                couleurTexte = "#0914A3";
+            } else {
+                message = "Bonne nuit";
+                couleurTexte = "#D90000";
+            }
+            const styleObject = {
+                fontSize: 100, // ou "100px"
+                color: couleurTexte
+            };
+
+            return (
+                <div>
+                    <h1 style={styleObject}>{message}</h1>
+                </div>
+            );
+        }
+
+        const root = ReactDOM.createRoot(document.getElementById('root'));
+        root.render(<MessageHeure />);
+    </script>
+
+</body>
+</html>
